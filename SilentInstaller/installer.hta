@@ -1,0 +1,218 @@
+<!--
+Criado por: Canal Script-Para 
+Alterado por: Jonathan Lopes - https://github.com/jonathan-lopes
+Data: 19/08/2020
+Version: 1.0
+Objetivo: Copiar os aquivos da pasta programas padrões e instlar silenciosamente-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: KIT SUPORTE PROGRAMAS ::</title>
+    
+    <style>
+        .bt {
+            border: 1px solid black;
+            border-radius: 4px;
+            display: inline-block;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 10px;
+            padding: 6px 10px;
+            margin: 0 1px;
+        }
+    </style>
+
+    <script LANGUAGE="VBSCRIPT">
+        Sub RunScript()
+            Set ObjFile = CreateObject("Scripting.FileSystemObject")
+            outFile = "C:\Kit_Suporte/Instalador.bat"
+            Set File = ObjFile.CreateTextFile(outFile, true)
+            for each itens in BasicCheckbox
+            if itens.checked = true then
+                File.Writeline itens.value
+            end if
+            next
+            File.Close
+            Set objShell = CreateObject("WScript.Shell")
+            objShell.Run("cmd /c C:\Kit_Suporte/Instalador.bat")
+        End Sub
+
+        sub delFolder()
+            MSGBOX "A pasta Kit_Suporte foi deletada", 64, "Attention"
+            Const DeleteReadOnly = TRUE
+            'Set objFSO = CreateObject("Scripting.FileSystemObject")
+            oFSO.DeleteFolder("C:\Kit_Suporte"), DeleteReadOnly
+        end sub
+
+        MSGBOX "Pasta Kit_Suporte foi criada em C:\ e arquivos da pasta Cp-gerencia, cp-kav, e Smart foram copiados", 64, "Attention"
+        
+        '-------------------------------------
+        'Creating Folder
+        '-------------------------------------
+
+        const strFolder = "C:\Kit_Suporte\"
+        Dim oFSO
+        Set oFSO = CreateObject("Scripting.FileSystemObject")
+
+        If Not oFSO.FolderExists(strFolder) Then
+            oFSO.CreateFolder strFolder
+        End If
+
+        '----------------------------------------
+        'Copying Folders and Files
+        '----------------------------------------
+
+        const Overwrite = true
+        Dim Folders
+        Set Folders = CreateObject("Scripting.FileSystemObject")
+
+        'Files
+        const zip7_x64 = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\7z1900-x64.exe"
+        const zip7_x86 = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\7z1900 - x86.exe"
+        const chrome = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\ChromeStandaloneSetup - x64.exe"
+        const shellSetup = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\ClassicShellSetup_4_2_5.exe"
+        const firefox_x64 = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\Firefox Setup 68.0.2 x64.exe"
+        const firefox_x86 = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\Firefox Setup 68.0.2 x86.exe"
+        const java_x64 = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\jre-8u221-windows-x64.exe"
+        const java_x86 = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\jre-8u221-windows-x86.exe"
+        const libre = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\LibreOffice_5.4.7.2_Win_x64.msi"
+        const pdfCreator = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\PDFCreator-3_5_1-Setup.exe"
+        const ptrscr = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\PrtScrSetup.exe"
+        const ultraVnc = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\UltraVNC_1_2_23_X64_Setup.exe"
+        const lenovoFn = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\Teclado lenovo FN\win7 - win8\t6kyb01us17.exe"
+
+        oFSO.CopyFile zip7_x64, strFolder, Overwrite
+
+        oFSO.CopyFile zip7_x86, strFolder, Overwrite
+
+        oFSO.CopyFile chrome, strFolder, Overwrite
+
+        oFSO.CopyFile shellSetup, strFolder, Overwrite
+
+        oFSO.CopyFile firefox_x64, strFolder, Overwrite
+
+        oFSO.CopyFile firefox_x86, strFolder, Overwrite
+
+        oFSO.CopyFile java_x64, strFolder, Overwrite
+
+        oFSO.CopyFile java_x86, strFolder, Overwrite
+
+        oFSO.CopyFile libre, strFolder, Overwrite
+
+        oFSO.CopyFile pdfCreator, strFolder, Overwrite
+
+        oFSO.CopyFile ptrscr, strFolder, Overwrite
+
+        oFSO.CopyFile zip7_x64, strFolder, Overwrite
+
+        oFSO.CopyFile ultraVnc, strFolder, Overwrite
+
+        oFSO.CopyFile lenovoFn, strFolder, Overwrite
+
+        'Folders
+        const smart = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\Smart"
+        const fontesSmart = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\fontes smart"
+        const oziron = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\oziron - autorizador online"
+        const netFramework = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\NET Framework 4.8"
+        const oracle = "\\cp-gerencia\TIC\PROGRAMAS_CARDIO\CLIENT ORACLE\Client_Oracle11g"
+        const pbdk12 = "\\cp-gerencia\TIC\PROGRAMAS_CARDIO\SMART\Install_PBDK12_v2.bat"
+        const kavAgent = "\\cp-kav\KLSHARE\Packages\NetAgent_11.0.0.1131"
+        const kav = "\\cp-kav\KLSHARE\Packages\KES_11.1.1.126"
+        'const certiZimbra = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\certificado zimbra"
+        'const certiMedica = "\\cp-gerencia\TIC\PROGRAMAS_PADROES\certificado digital prescricao medica"
+
+        Folders.CopyFolder smart, strFolder, Overwrite
+
+        Folders.CopyFolder fontesSmart, strFolder, Overwrite
+
+        Folders.CopyFolder oziron, strFolder, Overwrite
+
+        Folders.CopyFolder netFramework, strFolder, Overwrite
+
+        Folders.CopyFolder oracle, strFolder, Overwrite
+
+        Folders.CopyFolder pbdk12, strFolder, Overwrite
+
+        Folders.CopyFolder kavAgent, strFolder, Overwrite
+
+        Folders.CopyFolder kav, strFolder, Overwrite
+        
+        'If Not Folders.FolderExists(certiZimbra) Then
+        '    Folders.CopyFolder certiZimbra, strFolder, Overwrite
+        'End If
+
+        'If Not Folders.FolderExists(certiMedica) Then
+        '    Folders.CopyFolder certiMedica, strFolder, Overwrite
+        'End If        
+    </script>
+
+    <body background = "C:\Users\Jonathan\Pictures\SilentInstaller\Background\wallpaper.jpg">
+        <HTA:APPLICATION sysmenu="no">
+
+        <script LANGUAGE="JAVASCRIPT">
+        // Define o tamanho do HTA.
+        var splashWindowWidth=1025;
+        var splashWindowHeight=550;
+        // Definir a localização do HTA.
+        var splashWindowLeft=200;
+        var splashWindowTop=100;
+        // Checa a resolução
+
+        if(window.screen) {
+            // Calculo da centralização de acordo com o monitor.
+            splashWindowLeft = (window-screen.availWidth - splashWindowWidth)/2;
+            splashWindowTop = (window-screen.availHeight - splashWindowHeight)/2;
+        }
+        //Centralizar a HTA no monitor
+        window.moveTo(splashWindowLeft, splashWindowTop);
+        window.resizeTo(splashWindowWidth, splashWindowHeight);
+
+        function fechar() {
+            window.alert("A aplicação vai ser encerrada");
+            window.close();
+        }
+        </script>
+    </head>
+    <br><br><br><br><br><br>
+
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o 7-Zip && C:\Kit_Suporte\7z1900-x64.exe /passive && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\7zip.png" width="23px" height="23px"> 7-zip x64 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o 7-Zip && C:\Kit_Suporte\7z1900 - x86.exe /passive && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\7zip.png" width="23px" height="23px"> 7-zip x86 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o Google Chorme && C:\Kit_Suporte\ChromeStandaloneSetup - x64.exe /Silent /Install && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\Chrome.ico" width="23px" height="23px"> Chrome x64 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o Java 8u221 x64 && C:\Kit_Suporte\jre-8u221-windows-x64.exe /s && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\java.png" width="20px" height="20px"> Java 8u221 x64 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o Java 8u221 x86 && C:\Kit_Suporte\jre-8u221-windows-x86.exe /s && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\java.png" width="20px" height="20px"> Java 8u221 x86 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o FireFox && C:\Kit_Suporte\Firefox Setup 68.0.2 x64.exe 
+    /S && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\firefox.png" width="23px" height="23px"> Firefox x64 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o FireFox && C:\Kit_Suporte\Firefox Setup 68.0.2 x86.exe /S && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\firefox.png" width="23px" height="23px"> Firefox x86 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o Adobe Acrobat && C:\Kit_Suporte\AcroRdrDC1900820071_pt_BR.exe /passive && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\Acrobat.ico" width="23px" height="23px"> Adobe Acrobat <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o PDF Creator && C:\Kit_Suporte\PDFCreator-3_5_1-Setup.exe /S && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\pdfcreator.png" width="23px" height="23px"> PDF Creator <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o LibreOffice && C:\Kit_Suporte\LibreOffice_5.4.7.2_Win_x64.msi /quiet && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\libre.png" width="23px" height="23px"> LibreOffice x64 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o Classic Shell Setup && C:\Kit_Suporte\ClassicShellSetup_4_2_5.exe /passive && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\ClassicShellSetup.png" width="23px" height="23px"> Classic Shell Setup <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o Ultra VNC && C:\Kit_Suporte\UltraVNC_1_2_23_X64_Setup.exe && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\ultra-vnc.png" width="23px" height="23px"> Ultra VNC x64 <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o Teclado lenovo FN && C:\Kit_Suporte\Teclado lenovo FN\win7 - win8\t6kyb01us17.exe /passive && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\FN.png"width="23px" height="23px"> Teclado Lenovo FN <br> 
+
+    <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o PrtScr && C:\Kit_Suporte\PrtScrSetup.exe /VERYSILENT && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\PrtScr.png" width="23px" height="23px"> PrtSrc <br><br>
+
+    <Button class="bt" Onclick="RunScript()" >Instalar</button> 
+    <Button class="bt" Onclick="fechar()">Fechar</button> 
+    <button class="bt" onclick="delFolder()">Deletar pasta</button>
+    <br><br>
+</body>
+</html>
