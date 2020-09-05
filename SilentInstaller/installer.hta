@@ -63,6 +63,9 @@ Objetivo: Copiar os aquivos da pasta programas padrões e instalar silenciosamen
             oFSO.CreateFolder strFolder
         End If
 
+        'Opening folder
+        objShell.Run("cmd /c explorer C:\Kit_Suporte")
+
         '----------------------------------------
         'Copying Folders and Files
         '----------------------------------------
