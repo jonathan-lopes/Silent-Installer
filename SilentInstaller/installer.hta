@@ -12,20 +12,7 @@ Objetivo: Copiar os aquivos da pasta programas padrões e instalar silenciosamen
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>:: KIT SUPORTE PROGRAMAS ::</title>
-    
-    <style>
-        .bt {
-            border: 1px solid black;
-            border-radius: 4px;
-            display: inline-block;
-            cursor: pointer;
-            font-family: sans-serif;
-            font-weight: bold;
-            font-size: 10px;
-            padding: 6px 10px;
-            margin: 0 1px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script LANGUAGE="VBSCRIPT">
         Sub RunScript()
@@ -213,9 +200,9 @@ Objetivo: Copiar os aquivos da pasta programas padrões e instalar silenciosamen
 
     <input type="checkbox"name="BasicCheckbox"value="@echo Instalando o PrtScr && C:\Kit_Suporte\PrtScrSetup.exe /VERYSILENT && echo. && pause>nul"> <img src="C:\Users\Jonathan\Desktop\AutoInstaller\ico\PrtScr.png" width="23px" height="23px"> PrtSrc <br><br>
 
-    <Button class="bt" Onclick="RunScript()" >Instalar</button> 
-    <Button class="bt" Onclick="fechar()">Fechar</button> 
-    <button class="bt" onclick="delFolder()">Deletar pasta</button>
+    <Button class="btn btn-primary" style="margin-rigth: 1px; padding: 1px" Onclick="RunScript()" >Instalar</button> 
+    <Button class="btn btn-primary" style="margin-rigth: 1px; padding: 1px" Onclick="fechar()">Fechar</button> 
+    <button class="btn btn-primary" style="margin-rigth: 1px; padding: 1px" onclick="delFolder()">Deletar pasta</button>
     <br><br>
 </body>
 </html>
