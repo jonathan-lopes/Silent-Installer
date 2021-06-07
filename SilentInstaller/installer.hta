@@ -24,7 +24,7 @@ Objetivo: Copiar os aquivos da pasta programas padrões e instalar silenciosamen
        
         Dim shell
         set shell = CreateObject("WScript.Shell")
-        shell.Run("cmd /c net use J: \\cp-kav\KLSHARE")
+        shell.Run("cmd /c net use J: \\cp-kav\KLSHARE") 
         shell.Run("cmd /c net use P: \\cp-ad01\SmartSync")
 
         '-------------------------------------
@@ -188,7 +188,7 @@ Objetivo: Copiar os aquivos da pasta programas padrões e instalar silenciosamen
         'End If 
 
         '---------------------------------------------------------------- 
-        'Disconnect from a share and close all resources (undocumented)
+        'Disconnect from a share
         '----------------------------------------------------------------
         shell.Run("cmd /c net use J: /DELETE /Y && net use P: /DELETE /Y")
     </script>
